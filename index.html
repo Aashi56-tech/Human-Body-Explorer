@@ -1,337 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Human Body Explorer 🧬</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human Body Explorer 🧬</title>
+  <meta name="description" content="Explore the major systems of the human body with in-depth info, diagrams, practice sheets, and quizzes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🧬</span>
+        <span>Human Body Explorer</span>
+      </a>
 
-    <!-- =========================
-         NAVIGATION BAR
-    ========================== -->
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+      </div>
 
-    <header class="navbar">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/nervous.html">Nervous</a></li>
+        <li><a href="pages/circulatory.html">Circulatory</a></li>
+        <li><a href="pages/respiratory.html">Respiratory</a></li>
+        <li><a href="pages/digestive.html">Digestive</a></li>
+        <li><a href="pages/skeletal.html">Skeletal</a></li>
+        <li><a href="pages/muscular.html">Muscular</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="practice.html">Practice</a></li>
+        <li><a href="oral.html">Oral Test</a></li>
+      </ul>
+    </div>
+  </nav>
 
-        <div class="logo">
-            🧬 Human Body Explorer
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">🔬 Interactive Biology</div>
+      <h1>Explore the Human Body</h1>
+      <p>
+        Learn the major body systems with clear explanations, diagrams, practice sheets, objective & subjective questions, and oral tests.
+      </p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="#systems" class="btn btn-primary">Start Exploring →</a>
+        <a href="quiz.html" class="btn btn-outline">Take Quiz</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="search-section">
+    <div class="container">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search body systems..." autocomplete="off" />
+      </div>
+    </div>
+  </section>
+
+  <section class="systems-section" id="systems">
+    <div class="container">
+      <div class="section-header">
+        <h2>Major Body Systems</h2>
+        <p>Click any system for in-depth information and diagrams</p>
+      </div>
+
+      <div class="systems-grid" id="systemsGrid">
+        <a href="pages/nervous.html" class="system-card" data-keywords="nervous brain nerves signals control communication neurons">
+          <div class="system-icon icon-nervous">🧠</div>
+          <h3>Nervous System</h3>
+          <p>Controls all body activities and allows communication between the brain and the rest of the body.</p>
+          <span class="card-link">Explore →</span>
+        </a>
+
+        <a href="pages/circulatory.html" class="system-card" data-keywords="circulatory heart blood vessels oxygen nutrients transport">
+          <div class="system-icon icon-circulatory">❤️</div>
+          <h3>Circulatory System</h3>
+          <p>Transports oxygen, nutrients, hormones, and other important substances throughout the body.</p>
+          <span class="card-link">Explore →</span>
+        </a>
+
+        <a href="pages/respiratory.html" class="system-card" data-keywords="respiratory lungs breathing oxygen carbon dioxide alveoli">
+          <div class="system-icon icon-respiratory">🫁</div>
+          <h3>Respiratory System</h3>
+          <p>Helps the body take in oxygen and remove carbon dioxide through breathing.</p>
+          <span class="card-link">Explore →</span>
+        </a>
+
+        <a href="pages/digestive.html" class="system-card" data-keywords="digestive stomach food nutrients energy intestine">
+          <div class="system-icon icon-digestive">🍽️</div>
+          <h3>Digestive System</h3>
+          <p>Breaks down food and absorbs the nutrients your body needs for energy and growth.</p>
+          <span class="card-link">Explore →</span>
+        </a>
+
+        <a href="pages/skeletal.html" class="system-card" data-keywords="skeletal bones skeleton support protect movement joints">
+          <div class="system-icon icon-skeletal">🦴</div>
+          <h3>Skeletal System</h3>
+          <p>Provides structure, protects organs, and works with muscles to help the body move.</p>
+          <span class="card-link">Explore →</span>
+        </a>
+
+        <a href="pages/muscular.html" class="system-card" data-keywords="muscular muscles movement posture heat skeletal smooth cardiac">
+          <div class="system-icon icon-muscular">💪</div>
+          <h3>Muscular System</h3>
+          <p>Allows movement, maintains posture, and helps produce body heat.</p>
+          <span class="card-link">Explore →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <h2>About This Project</h2>
+        <p>
+          Human Body Explorer is an educational project designed to make learning human anatomy clear, visual, and practical.
+          Study in-depth content, practice with objective and subjective questions, use practice sheets, and prepare for oral tests.
+        </p>
+        <div style="margin-top:28px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="practice.html" class="btn btn-outline btn-sm">Practice Sheets</a>
+          <a href="oral.html" class="btn btn-outline btn-sm">Oral Tests</a>
+          <a href="quiz.html" class="btn btn-outline btn-sm">Full Quiz</a>
         </div>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#systems">Body Systems</a>
-            <a href="#about">About</a>
-        </nav>
-
-        <button id="themeButton">🌙</button>
-
-    </header>
-
-
-    <!-- =========================
-         HERO SECTION
-    ========================== -->
-
-    <main>
-
-        <section id="home" class="hero">
-
-            <div class="hero-text">
-
-                <p class="small-title">
-                    🔬 INTERACTIVE BIOLOGY
-                </p>
-
-                <h1>
-                    Explore the
-                    <span>Human Body</span>
-                </h1>
-
-                <p>
-                    Discover how the amazing systems of the human body
-                    work together to keep us alive, healthy, and moving.
-                </p>
-
-                <a href="pages/human-body.html" class="explore-button">
-                    Explore Human Body →
-                </a>
-
-            </div>
-
-
-            <div class="hero-visual">
-
-                <div class="body-circle">
-                    🧍
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SEARCH SECTION
-        ========================== -->
-
-        <section class="search-section">
-
-            <h2>🔎 Find a Body System</h2>
-
-            <div class="search-box">
-
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Search for a system..."
-                >
-
-                <button id="searchButton">
-                    Search
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             BODY SYSTEMS
-        ========================== -->
-
-        <section id="systems" class="systems-section">
-
-            <div class="section-heading">
-
-                <p>EXPLORE</p>
-
-                <h2>
-                    Major Body Systems
-                </h2>
-
-                <span>
-                    Click on a system to learn more.
-                </span>
-
-            </div>
-
-
-            <div class="system-grid">
-
-
-                <!-- Nervous System -->
-
-                <article class="system-card">
-
-                    <div class="system-icon">
-                        🧠
-                    </div>
-
-                    <h3>
-                        Nervous System
-                    </h3>
-
-                    <p>
-                        Controls the body's activities and allows
-                        communication between the brain and the body.
-                    </p>
-
-                    <a href="pages/brain.html">
-                        Explore →
-                    </a>
-
-                </article>
-
-
-                <!-- Circulatory System -->
-
-                <article class="system-card">
-
-                    <div class="system-icon">
-                        ❤️
-                    </div>
-
-                    <h3>
-                        Circulatory System
-                    </h3>
-
-                    <p>
-                        Transports oxygen, nutrients, hormones,
-                        and other substances throughout the body.
-                    </p>
-
-                    <a href="pages/heart.html">
-                        Explore →
-                    </a>
-
-                </article>
-
-
-                <!-- Respiratory System -->
-
-                <article class="system-card">
-
-                    <div class="system-icon">
-                        🫁
-                    </div>
-
-                    <h3>
-                        Respiratory System
-                    </h3>
-
-                    <p>
-                        Helps the body take in oxygen and remove
-                        carbon dioxide.
-                    </p>
-
-                    <a href="pages/lungs.html">
-                        Explore →
-                    </a>
-
-                </article>
-
-
-                <!-- Digestive System -->
-
-                <article class="system-card">
-
-                    <div class="system-icon">
-                        🍽️
-                    </div>
-
-                    <h3>
-                        Digestive System
-                    </h3>
-
-                    <p>
-                        Breaks down food and absorbs nutrients
-                        needed by the body.
-                    </p>
-
-                    <a href="pages/digestive.html">
-                        Explore →
-                    </a>
-
-                </article>
-
-
-                <!-- Skeletal System -->
-
-                <article class="system-card">
-
-                    <div class="system-icon">
-                        🦴
-                    </div>
-
-                    <h3>
-                        Skeletal System
-                    </h3>
-
-                    <p>
-                        Provides support, protects organs, and
-                        helps the body move.
-                    </p>
-
-                    <a href="pages/skeletal.html">
-                        Explore →
-                    </a>
-
-                </article>
-
-
-                <!-- Muscular System -->
-
-                <article class="system-card">
-
-                    <div class="system-icon">
-                        💪
-                    </div>
-
-                    <h3>
-                        Muscular System
-                    </h3>
-
-                    <p>
-                        Allows movement, maintains posture,
-                        and produces body heat.
-                    </p>
-
-                    <a href="pages/muscular.html">
-                        Explore →
-                    </a>
-
-                </article>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             ABOUT SECTION
-        ========================== -->
-
-        <section id="about" class="about-section">
-
-            <div>
-
-                <p class="small-title">
-                    ABOUT THE PROJECT
-                </p>
-
-                <h2>
-                    Biology made interactive.
-                </h2>
-
-                <p>
-                    Human Body Explorer is an educational project
-                    created to make learning human anatomy more
-                    visual, interactive, and enjoyable.
-                </p>
-
-                <p>
-                    Explore different body systems, discover their
-                    functions, and test your knowledge through
-                    interactive activities.
-                </p>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <p>
-            🧬 Human Body Explorer
-        </p>
-
-        <p>
-            Built with HTML, CSS & JavaScript
-        </p>
-
-        <p>
-            © 2026
-        </p>
-
-    </footer>
-
-
-    <!-- JavaScript -->
-
-    <script src="script.js"></script>
-
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Human Body Explorer · Built for learning · <a href="quiz.html">Quiz</a> · <a href="practice.html">Practice</a> · <a href="oral.html">Oral Test</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
