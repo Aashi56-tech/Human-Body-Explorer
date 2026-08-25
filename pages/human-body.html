@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Human Body Explorer</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+
+        /* =========================
+           BODY EXPLORER PAGE
+        ========================= */
+
+        .body-page {
+            min-height: 100vh;
+            padding: 60px 7%;
+        }
+
+        .body-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .body-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .body-header p {
+            color: #667085;
+            max-width: 650px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           EXPLORER LAYOUT
+        ========================= */
+
+        .body-explorer {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 40px;
+
+            align-items: center;
+        }
+
+
+        /* =========================
+           HUMAN FIGURE
+        ========================= */
+
+        .human-figure {
+            min-height: 600px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            border-radius: 25px;
+
+            border: 1px solid #e5e9ef;
+
+            position: relative;
+        }
+
+        .human {
+            font-size: 18rem;
+
+            position: relative;
+
+            user-select: none;
+        }
+
+
+        /* =========================
+           ORGAN BUTTONS
+        ========================= */
+
+        .organ {
+            position: absolute;
+
+            width: 55px;
+            height: 55px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 1.5rem;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+
+            transition: 0.25s ease;
+        }
+
+        .organ:hover {
+            transform: scale(1.15);
+        }
+
+
+        /* Organ positions */
+
+        .brain {
+            top: 120px;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+        .heart {
+            top: 250px;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+        .lungs {
+            top: 245px;
+            left: 38%;
+        }
+
+        .digestive {
+            top: 340px;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+        .bones {
+            top: 420px;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+
+        /* =========================
+           INFORMATION PANEL
+        ========================= */
+
+        .info-panel {
+
+            background: white;
+
+            border-radius: 25px;
+
+            padding: 40px;
+
+            border: 1px solid #e5e9ef;
+
+            min-height: 400px;
+
+            box-shadow:
+                0 20px 50px rgba(15, 23, 42, 0.06);
+        }
+
+        .info-icon {
+            font-size: 4rem;
+
+            margin-bottom: 15px;
+        }
+
+        .info-panel h2 {
+            font-size: 2rem;
+
+            margin-bottom: 15px;
+        }
+
+        .info-panel p {
+            color: #667085;
+
+            margin-bottom: 20px;
+        }
+
+        .info-panel ul {
+            padding-left: 20px;
+
+            color: #667085;
+        }
+
+        .info-panel li {
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark-mode .human-figure,
+        body.dark-mode .info-panel {
+
+            background: #111827;
+
+            border-color: #263449;
+        }
+
+        body.dark-mode .body-header p,
+        body.dark-mode .info-panel p,
+        body.dark-mode .info-panel ul {
+
+            color: #94a3b8;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .body-explorer {
+
+                grid-template-columns: 1fr;
+            }
+
+            .body-header h1 {
+
+                font-size: 2.5rem;
+            }
+
+            .human-figure {
+
+                min-height: 500px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🧬 Human Body Explorer
+        </div>
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="#explorer">
+                Explorer
+            </a>
+
+        </nav>
+
+        <button id="themeButton">
+            🌙
+        </button>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="body-page">
+
+
+        <!-- HEADER -->
+
+        <section class="body-header">
+
+            <p class="small-title">
+                INTERACTIVE ANATOMY
+            </p>
+
+            <h1>
+                Explore the Human Body 🧍
+            </h1>
+
+            <p>
+                Click on different parts of the body to discover
+                what they do and why they are important.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             EXPLORER
+        ========================== -->
+
+        <section
+            id="explorer"
+            class="body-explorer"
+        >
+
+
+            <!-- HUMAN FIGURE -->
+
+            <div class="human-figure">
+
+                <div class="human">
+
+                    🧍
+
+                    <!-- Brain -->
+
+                    <button
+                        class="organ brain"
+                        data-organ="brain"
+                    >
+                        🧠
+                    </button>
+
+
+                    <!-- Heart -->
+
+                    <button
+                        class="organ heart"
+                        data-organ="heart"
+                    >
+                        ❤️
+                    </button>
+
+
+                    <!-- Lungs -->
+
+                    <button
+                        class="organ lungs"
+                        data-organ="lungs"
+                    >
+                        🫁
+                    </button>
+
+
+                    <!-- Digestive -->
+
+                    <button
+                        class="organ digestive"
+                        data-organ="digestive"
+                    >
+                        🍽️
+                    </button>
+
+
+                    <!-- Skeleton -->
+
+                    <button
+                        class="organ bones"
+                        data-organ="bones"
+                    >
+                        🦴
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 INFORMATION PANEL
+            ========================== -->
+
+            <div
+                class="info-panel"
+                id="infoPanel"
+            >
+
+                <div
+                    class="info-icon"
+                    id="infoIcon"
+                >
+                    🧬
+                </div>
+
+                <h2 id="infoTitle">
+                    Choose an Organ
+                </h2>
+
+                <p id="infoDescription">
+                    Click one of the highlighted organs
+                    to learn more about it.
+                </p>
+
+                <ul id="infoFacts">
+
+                    <li>
+                        Explore the human body interactively.
+                    </li>
+
+                    <li>
+                        Select an organ to see its function.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           ORGAN INFORMATION
+        ========================= */
+
+        const organData = {
+
+            brain: {
+
+                icon: "🧠",
+
+                title: "Brain",
+
+                description:
+                    "The brain is the main control center of the nervous system.",
+
+                facts: [
+
+                    "Controls many body activities.",
+
+                    "Helps with thinking and memory.",
+
+                    "Receives and processes information.",
+
+                    "Coordinates many voluntary movements."
+
+                ]
+
+            },
+
+
+            heart: {
+
+                icon: "❤️",
+
+                title: "Heart",
+
+                description:
+                    "The heart is a muscular organ that pumps blood throughout the body.",
+
+                facts: [
+
+                    "Part of the circulatory system.",
+
+                    "Pumps blood to the lungs and body.",
+
+                    "Helps deliver oxygen and nutrients.",
+
+                    "Works continuously throughout life."
+
+                ]
+
+            },
+
+
+            lungs: {
+
+                icon: "🫁",
+
+                title: "Lungs",
+
+                description:
+                    "The lungs are the main organs of the respiratory system.",
+
+                facts: [
+
+                    "Take oxygen into the body.",
+
+                    "Remove carbon dioxide.",
+
+                    "Contain millions of tiny air sacs.",
+
+                    "Work with the respiratory system."
+
+                ]
+
+            },
+
+
+            digestive: {
+
+                icon: "🍽️",
+
+                title: "Digestive System",
+
+                description:
+                    "The digestive system breaks food down so the body can absorb nutrients.",
+
+                facts: [
+
+                    "Includes organs such as the stomach and intestines.",
+
+                    "Breaks food into smaller substances.",
+
+                    "Absorbs nutrients.",
+
+                    "Removes undigested waste."
+
+                ]
+
+            },
+
+
+            bones: {
+
+                icon: "🦴",
+
+                title: "Skeletal System",
+
+                description:
+                    "The skeletal system provides structure and support for the body.",
+
+                facts: [
+
+                    "Provides support.",
+
+                    "Protects important organs.",
+
+                    "Works with muscles to produce movement.",
+
+                    "Stores minerals such as calcium."
+
+                ]
+
+            }
+
+        };
+
+
+
+        /* =========================
+           ELEMENTS
+        ========================= */
+
+        const organs =
+            document.querySelectorAll(".organ");
+
+        const infoIcon =
+            document.getElementById("infoIcon");
+
+        const infoTitle =
+            document.getElementById("infoTitle");
+
+        const infoDescription =
+            document.getElementById("infoDescription");
+
+        const infoFacts =
+            document.getElementById("infoFacts");
+
+
+
+        /* =========================
+           ORGAN CLICK
+        ========================= */
+
+        organs.forEach(function (organ) {
+
+            organ.addEventListener("click", function () {
+
+                const selectedOrgan =
+                    organ.dataset.organ;
+
+                const data =
+                    organData[selectedOrgan];
+
+
+                infoIcon.textContent =
+                    data.icon;
+
+                infoTitle.textContent =
+                    data.title;
+
+                infoDescription.textContent =
+                    data.description;
+
+
+                infoFacts.innerHTML = "";
+
+
+                data.facts.forEach(function (fact) {
+
+                    const li =
+                        document.createElement("li");
+
+                    li.textContent = fact;
+
+                    infoFacts.appendChild(li);
+
+                });
+
+            });
+
+        });
+
+
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        const themeButton =
+            document.getElementById("themeButton");
+
+
+        themeButton.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle(
+                    "dark-mode"
+                );
+
+
+                if (
+                    document.body.classList.contains(
+                        "dark-mode"
+                    )
+                ) {
+
+                    themeButton.textContent = "☀️";
+
+                    localStorage.setItem(
+                        "theme",
+                        "dark"
+                    );
+
+                } else {
+
+                    themeButton.textContent = "🌙";
+
+                    localStorage.setItem(
+                        "theme",
+                        "light"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           REMEMBER THEME
+        ========================= */
+
+        if (
+            localStorage.getItem("theme") ===
+            "dark"
+        ) {
+
+            document.body.classList.add(
+                "dark-mode"
+            );
+
+            themeButton.textContent = "☀️";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
